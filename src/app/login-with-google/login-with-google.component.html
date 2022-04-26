@@ -1,0 +1,31 @@
+<section class=" text-center">
+    <div class="container">
+        <div *ngIf="authorized; then proData else login"></div>
+   <ng-template #login>
+     <h2 class="jumbotron-heading marginBottom"> Google Social login</h2>
+     <!-- <h2 class="jumbotron-heading marginBottom"> User Detail </h2> -->
+
+     <br/>
+       <p class="lead text-muted marginBottom">Please sign in</p>
+       <p>
+           <!-- <button (click)="socialSignIn('facebook')" class="btn btn-primary my-2">Sign in with Facebook</button> -->
+         <button (click)="socialSignIn('google')" class="btn btn-primary my-2">Signin in with Google</button>  
+     </p>
+  </ng-template>  
+ 
+  <ng-template #proData>
+      <h4 class="marginBottom">My {{user.provider}} profile</h4>
+      <br/>
+   <!-- <img src="{{user.image}}" class="marginBottom"> -->
+ <!-- <div class="marginBottom">
+   <h4>{{user.name}}</h4>
+   <p>{{user.email}}</p>
+ </div>  -->
+<div class="main">
+  <!-- <app-user-crud></app-user-crud> -->
+</div>
+ <!-- <button class="btn btn-danger" (click)="signOut()">Sign out</button> -->
+ <button class="btn btn-danger" *ngIf="loggedIn" (click)="signOut()">Sign out</button>
+  </ng-template>
+  </div>
+ </section>
